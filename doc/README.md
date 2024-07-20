@@ -1,4 +1,4 @@
-# System architecture
+# System architecture description
 ## Overview
 ## Electronics
 ## Zigbee model
