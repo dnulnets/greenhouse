@@ -8,11 +8,11 @@ flowchart LR
     app("Greenhouse App")
     end
     subgraph Sparkfun ESP32-C6
-    zd
-    zd-->ep10
-    zd-->ep20
-    zd-->ep30
-    zd-->ep40
+    zd("Device")
+    zd-->ep10("Endpoint Outside")
+    zd-->ep20("Endpoint Greenhouse")
+    zd-->ep30("Endpoint Soil")
+    zd-->ep40("Endpoint Ventilation")
     end
     app-->zd
 ```
