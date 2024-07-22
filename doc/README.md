@@ -14,6 +14,16 @@ flowchart LR
     zd-->ep30("Endpoint Soil")
     zd-->ep40("Endpoint Ventilation")
     end
+    subgraph EP10
+    T1("Temperature")
+    P1("Pressure")
+    RH1("Humidity")
+    I1("Illuminance")
+    end
+    ep10-->T1
+    ep10-->P1
+    ep10-->RH1
+    ep10-->I1
     app-->zd
 ```
 ## Electronics
