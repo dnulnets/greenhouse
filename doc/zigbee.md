@@ -11,10 +11,22 @@ The basic cluster has two mandatory attributes, i.e. the **ZCLVersion** and **Po
 
 ## Endpoints
 ### Outside environment (10)
-Cluster temperature measurement (0x0402), barometric pressure (0x0403, extended set), relative humidity measurement (0x0405), illuminance measurement (0x0400)
+Cluster list:
+* temperature measurement (0x0402), outdoor air temperature
+* pressure measurement (0x0403), outdoor barometric pressure
+* relative humidity measurement (0x0405), outdoor relative humidity
+* illuminance measurement (0x0400), outdoor illuminance
 ### Greenhouse environment (20)
-Cluster temperature measurement (0x0402), relative humidity measurement (0x0405), illuminance measurement (0x0400)
+Cluster list:
+* temperature measurement (0x0402), greenhouse temperature
+* relative humidity measurement (0x0405), greenhouse relative humidity
+* illuminance measurement (0x0400), greenhouse illuminance
 ### Soil environment (30)
-Cluster temperature measurement (0x0402), soil moisture measurement (0x0408), flow measurement (0x0404), pump on/off (0x0006)
+Cluster list:
+* temperature measurement (0x0402), soil temperature
+* soil moisture measurement (0x0408), soil moisture
+* flow measurement (0x0404), water flow
+* pump on/off (0x0006), water pump
 ### Roof ventilation windows (40)
-Cluster level control (0x0008)
+Cluster list:
+* level control (0x0008), opeing of the roof hatchets
