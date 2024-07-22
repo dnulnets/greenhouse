@@ -9,7 +9,7 @@ block-beta
         A["Greenhouse App"]
     end
     space
-    block:SPARKFUN
+    block:SPARKFUN["Sparkfun"]
         EP10
         EP20
         EP30
