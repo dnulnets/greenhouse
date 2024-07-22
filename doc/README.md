@@ -3,26 +3,22 @@
 The system solution consists of software for the sparkfun device and the homey-controller. Electronics for the sparkfun device and the sensors and actuators.
 
 ```mermaid
-block-beta
-  columns 1
-    block:HOMEY
-        A["Greenhouse App"]
+flowchart OV
+    a1-->Sparkfun
+    ep10-->temperature1
+    ep20-->temperature2
+    subgraph Homey
+    a1
+    subgraph Sparkfun
+    ep10
+    ep20
+    ep30
+    ep40
+    subgraph Sensors
+    temperature1
+    temperature2
     end
-    space
-    block:SPARKFUN["Sparkfun"]
-        block:EP
-            EP10
-            EP20
-            EP30
-            EP40
-        end
-        block:SENSOR
-            SENSOR1
-            SENSOR2
-        end  
-        EP10 --> SENSOR1
-    end
-    HOMEY --> SPARKFUN
+
 ```
 ## Electronics
 ## Zigbee model
