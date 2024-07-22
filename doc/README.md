@@ -31,6 +31,9 @@ flowchart LR
     F1("Water flow")
     W1("Water pump")
     end
+    subgraph EP40
+    V1("Roof ventilation")
+    end
     ep10-->T1
     ep10-->P1
     ep10-->RH1
@@ -42,6 +45,7 @@ flowchart LR
     ep30-->W1
     ep30-->RH3
     ep30-->F1
+    ep40->V1
     app-->zd
 ```
 ## Electronics
