@@ -10,10 +10,12 @@ block-beta
     end
     space
     block:SPARKFUN["Sparkfun"]
-        EP10
-        EP20
-        EP30
-        EP40    
+        block:EP
+            EP10
+            EP20
+            EP30
+            EP40
+        end  
     end
     HOMEY --> SPARKFUN
 ```
