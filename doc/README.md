@@ -10,7 +10,7 @@ flowchart TB
     subgraph sf
     ep10-->t1
     subgraph se
-    ep10-->t2
+    t1-->t2
     end
 
 ```
