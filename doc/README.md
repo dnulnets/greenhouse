@@ -8,7 +8,7 @@ flowchart LR
     subgraph Homey Pro
     app("Greenhouse App")
     end
-    subgraph Sparkfun ESP32-C6
+    subgraph Sparkfun
     zd("Z-Device")
     end
     subgraph Sensors
