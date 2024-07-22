@@ -4,19 +4,13 @@ The system solution consists of software for the sparkfun device and the homey-c
 
 ```mermaid
 flowchart TB
-    ep10-->temperature1
-    ep20-->temperature2
     h-->sf
     subgraph Homey [h]
     a1
     subgraph Sparkfun [sf]
-    ep10
-    ep20
-    ep30
-    ep40
+    ep10-->temperature1
     subgraph Sensors [se]
-    temperature1
-    temperature2
+    ep10-->temperature1
     end
 
 ```
