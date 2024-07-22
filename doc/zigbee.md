@@ -1,7 +1,6 @@
 # Zigbee Model
-The current approach to the zigbee device is to have one endpoint for each sensor and actuator.
-
-## Endpoints
+The current approach to the zigbee device is to have one endpoint for each group of sensors and actuators that have a high degree of relationship.
+## Endpoint description
 ### Basic Cluster
 Homey App requires the basic cluster for each endpoint to include manufacturing name and model id, otherwise it will not register the device.
 The basic cluster has two mandatory attributes, i.e. the **ZCLVersion** and **PowerSource**.
@@ -9,7 +8,8 @@ The basic cluster has two mandatory attributes, i.e. the **ZCLVersion** and **Po
 * PowerSource: **Mains (single phase)**
 * ManufacturerName: **Stenlund**
 * ModelIdentifier: **Greenhouse-00**
-### Outside environment (EndpointId 10)
+### List of endpoints
+#### Outside environment (EndpointId 10)
 Cluster list:
 * temperature measurement (0x0402), outdoor air temperature
 * pressure measurement (0x0403), outdoor barometric pressure
