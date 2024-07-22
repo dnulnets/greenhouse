@@ -1,6 +1,6 @@
 # System architecture description
 ## Overview
-The system solution consists of software for the sparkfun device and the homey-controller. Electronics for the sparkfun device and the sensors and actuators.
+On a very high level view the solution consists of a homey application and a sparkfun board with sensors and actuators. The software on the sparkfun board implements a zigbee device with a set of endpoints for sensing and controlling. The software on the homey controller handles the zigbee device and endpoints. 
 
 ```mermaid
 %%| fig-width: 1
