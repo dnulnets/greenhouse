@@ -20,10 +20,18 @@ flowchart LR
     RH1("Humidity")
     I1("Illuminance")
     end
+    subgraph EP20
+    T2("Temperature")
+    RH2("Humidity")
+    I2("Illuminance")
+    end
     ep10-->T1
     ep10-->P1
     ep10-->RH1
     ep10-->I1
+    ep20-->T2
+    ep20-->RH2
+    ep20-->I2
     app-->zd
 ```
 ## Electronics
