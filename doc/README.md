@@ -4,20 +4,16 @@ The system solution consists of software for the sparkfun device and the homey-c
 
 ```mermaid
 flowchart TB
-    c1-->a2
-    subgraph one
-    a1-->a2
-    app
+    subgraph homey
+    app->zd
     end
-    subgraph two
-    b1-->b2
+    subgraph sparkfun
+    zd
+    zd->ep10
+    zd->ep20
+    zd->ep30
+    zd->ep40
     end
-    subgraph three
-    c1-->c2
-    end
-    one --> two
-    three --> two
-    two --> c2
 
 ```
 ## Electronics
