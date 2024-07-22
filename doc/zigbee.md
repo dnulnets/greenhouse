@@ -1,7 +1,8 @@
 # Zigbee Model
 The current approach to the zigbee device is to have one endpoint for each group of sensors and actuators that have a high degree of relationship.
 ## Endpoint description
-### Basic Cluster
+### Generic clusters and settings
+#### Basic Cluster
 Homey App requires the basic cluster for each endpoint to include manufacturing name and model id, otherwise it will not register the device.
 The basic cluster has two mandatory attributes, i.e. the **ZCLVersion** and **PowerSource**.
 * ZCLVersion: **ESP_ZB_ZCL_BASIC_ZCL_VERSION_DEFAULT_VALUE** Currently the ESP supports revision 8.
