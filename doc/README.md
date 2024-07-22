@@ -6,11 +6,11 @@ The system solution consists of software for the sparkfun device and the homey-c
 flowchart TB
     h-->sf
     subgraph Homey [h]
-    a1
+    a1->a2
     subgraph Sparkfun [sf]
-    ep10-->temperature1
+    ep10-->t1
     subgraph Sensors [se]
-    ep10-->temperature1
+    ep10-->t2
     end
 
 ```
