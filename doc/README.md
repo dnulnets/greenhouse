@@ -3,6 +3,7 @@
 The system solution consists of software for the sparkfun device and the homey-controller. Electronics for the sparkfun device and the sensors and actuators.
 
 ```mermaid
+%%| fig-width: 5
 flowchart LR
     subgraph Homey Pro
     app("Greenhouse App")
