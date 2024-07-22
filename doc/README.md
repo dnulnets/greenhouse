@@ -5,7 +5,7 @@ The system solution consists of software for the sparkfun device and the homey-c
 ```mermaid
 flowchart TB
     subgraph homey
-    app-->zd
+    app
     end
     subgraph sparkfun
     zd
@@ -14,6 +14,7 @@ flowchart TB
     zd-->ep30
     zd-->ep40
     end
+    app-->zd
 ```
 ## Electronics
 ## Zigbee model
