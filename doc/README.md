@@ -15,7 +15,12 @@ block-beta
             EP20
             EP30
             EP40
+        end
+        block:SENSOR
+            SENSOR1
+            SENSOR2
         end  
+        EP10 --> SENSOR1
     end
     HOMEY --> SPARKFUN
 ```
