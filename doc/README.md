@@ -6,7 +6,7 @@ The system solution consists of software for the sparkfun device and the homey-c
 block-beta
   columns 1
     block:HOMEY
-        A[Greenhouse App]
+        A["Greenhouse App"]
     end
     space
     block:SPARKFUN
