@@ -25,6 +25,12 @@ flowchart LR
     RH2("Humidity")
     I2("Illuminance")
     end
+    subgraph EP30
+    T3("Temperature")
+    RH3("Humidity")
+    F1("Water flow")
+    W1("Water pump")
+    end
     ep10-->T1
     ep10-->P1
     ep10-->RH1
@@ -32,6 +38,10 @@ flowchart LR
     ep20-->T2
     ep20-->RH2
     ep20-->I2
+    ep30-->T3
+    ep30-->W1
+    ep30-->RH3
+    ep30-->F1
     app-->zd
 ```
 ## Electronics
