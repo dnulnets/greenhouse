@@ -45,7 +45,7 @@ flowchart LR
     ep30-->W1
     ep30-->RH3
     ep30-->F1
-    ep40->V1
+    ep40-->V1
     app-->zd
 ```
 ## Electronics
