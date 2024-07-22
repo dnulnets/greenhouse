@@ -4,10 +4,10 @@ The system solution consists of software for the sparkfun device and the homey-c
 
 ```mermaid
 flowchart LR
-    subgraph homey
+    subgraph Homey Pro
     app("Greenhouse App")
     end
-    subgraph sparkfun
+    subgraph Sparkfun
     zd
     zd-->ep10
     zd-->ep20
