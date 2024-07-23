@@ -1,5 +1,8 @@
-# Greenhouse Climate Control
+# Homey Pro and Greenhouse Climate Control
 Zigbee climate control for the greenhouse using the Sparkfun Thing Plus ESP32-C6 experimental board, Espressif toolchain and the Homey Pro as the HA-controller.
+
+
+This is work in progress and I am currently setting up the entire toolchain and basoc source structure for Homey and the Sparkfun device.
 
 
 [System architecture description](doc/README.md)
