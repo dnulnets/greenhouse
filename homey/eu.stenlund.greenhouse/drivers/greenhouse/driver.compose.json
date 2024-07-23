@@ -1,0 +1,15 @@
+{
+  "name": { "en": "Greenhouse" },
+  "class": "other",
+  "capabilities": ["measure_temperature", "measure_luminance"],
+  "zigbee": {
+    "manufacturerName": "Stenlund",
+    "productId": ["Greenhouse-00"],
+    "endpoints": {
+      "10": {
+        "clusters": [0, 1026, 1024],
+        "bindings": [1026, 1024]
+      }
+    }
+  }
+}
