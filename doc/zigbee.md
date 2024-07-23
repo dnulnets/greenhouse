@@ -23,11 +23,15 @@ Cluster list:
 * relative humidity measurement (0x0405), greenhouse relative humidity
 * illuminance measurement (0x0400), greenhouse illuminance
 ### Soil environment (EndpointId 30)
+This endpoint could perhaps be a separate zigbee physical device on its own to measure the soil in different locations in the greenhouse.
 Cluster list:
 * temperature measurement (0x0402), soil temperature
 * soil moisture measurement (0x0408), soil moisture
+### Watering (Endpoint 40)
+Cluster list:
 * flow measurement (0x0404), the water flow for watering the plants
 * pump on/off (0x0006), water pump for turning the pump on and off
-### Roof ventilation windows (EndpointId 40)
+### Roof ventilation windows (EndpointId 50)
+This endpoint could perhaps be a separate zigbee physical device on its own to control each hatch in the greenhouse individually.
 Cluster list:
 * level control (0x0008), control of the roof hatchets for ventilation
