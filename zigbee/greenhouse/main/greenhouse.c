@@ -17,6 +17,7 @@
 #include "greenhouse.h"
 #include "convert.h"
 #include "ep_outside.h"
+#include "ep_greenhouse.h"
 
 static const char *TAG = "greenhouse.c";
 
@@ -89,14 +90,24 @@ static void zb_task(void *pvParameters)
     esp_zb_ep_list_t *ep_list = esp_zb_ep_list_create();
 
     /* Create the outside endpoint */
-    esp_zb_cluster_list_t *esp_zb_sensor_ep = create_outside_ep();
-    esp_zb_endpoint_config_t endpoint_config = {
+    esp_zb_cluster_list_t *esp_zb_outside_ep = create_outside_ep();
+    esp_zb_endpoint_config_t endpoint_outside_config = {
         .endpoint = EP_OUTSIDE_ID,
         .app_profile_id = ESP_ZB_AF_HA_PROFILE_ID,
         .app_device_id = ESP_ZB_HA_SIMPLE_SENSOR_DEVICE_ID,
-        .app_device_version = 0
+        .app_device_version = GREENHOUSE_DEVICE_VERSION
     };
-    esp_zb_ep_list_add_ep(ep_list, esp_zb_sensor_ep, endpoint_config);
+    esp_zb_ep_list_add_ep(ep_list, esp_zb_outside_ep, endpoint_outside_config);
+
+    /* Create the greenhouse endpoint */
+    esp_zb_cluster_list_t *esp_zb_greenhouse_ep = create_greenhouse_ep();
+    esp_zb_endpoint_config_t endpoint_greenhouse_config = {
+        .endpoint = EP_GREENHOUSE_ID,
+        .app_profile_id = ESP_ZB_AF_HA_PROFILE_ID,
+        .app_device_id = ESP_ZB_HA_SIMPLE_SENSOR_DEVICE_ID,
+        .app_device_version = GREENHOUSE_DEVICE_VERSION
+    };
+    esp_zb_ep_list_add_ep(ep_list, esp_zb_greenhouse_ep, endpoint_greenhouse_config);
 
     /* Register the device */
     esp_zb_device_register(ep_list);

@@ -58,7 +58,8 @@ esp_zb_attribute_list_t *create_illuminance_cluster (float min, float max)
     esp_zb_illuminance_meas_cluster_cfg_t ic = { 
         .min_value = illuminance_to_u16(min), 
         .max_value = illuminance_to_u16(max),
-        .measured_value = 0x0000 /* Default value */
+        //.measured_value = ILLUMINANCE_VALUE_TOO_LOW /* Default value */
+        .measured_value = illuminance_to_u16(15000.0) /* Default value lux */
     };
 
     esp_zb_attribute_list_t *icl = esp_zb_illuminance_meas_cluster_create(&ic);
@@ -67,3 +68,29 @@ esp_zb_attribute_list_t *create_illuminance_cluster (float min, float max)
     return icl;
 }
 
+esp_zb_attribute_list_t *create_humidity_cluster (float min, float max)
+{
+    esp_zb_humidity_meas_cluster_cfg_t ic = { 
+        .min_value = water_content_to_u16(min), 
+        .max_value = water_content_to_u16(max),
+        //.measured_value = HUMIDITY_VALUE_UNKNOWN /* Default value */
+        .measured_value = water_content_to_u16(50.0) /* Default value % */
+    };
+
+    esp_zb_attribute_list_t *icl = esp_zb_humidity_meas_cluster_create(&ic);
+    return icl;
+}
+
+esp_zb_attribute_list_t *create_pressure_cluster (float min, float max)
+{
+    esp_zb_pressure_meas_cluster_cfg_t ic = { 
+        .min_value = pressure_to_s16(min), 
+        .max_value = pressure_to_s16(max),
+        //.measured_value = PRESSURE_VALUE_UNKNOWN /* Default value */
+        .measured_value = pressure_to_s16(101.325) /* Default value kPA */
+    };
+
+    /* We should perhaps move to scaled values */
+    esp_zb_attribute_list_t *icl = esp_zb_pressure_meas_cluster_create(&ic);
+    return icl;
+}

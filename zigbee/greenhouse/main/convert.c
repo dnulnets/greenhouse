@@ -16,10 +16,10 @@ int16_t temperature_to_s16(float temperature)
 {
     /* Too low ? */
     if (temperature < -273.15)
-        return 0x8000;
+        return TEMPERATURE_VALUE_UNKNOWN;
     /* Too high ?*/
     if (temperature > 327.67)
-        return 0x8000;
+        return TEMPERATURE_VALUE_UNKNOWN;
     /* Convert to signed int */
     return (int16_t)(temperature * 100);
 }
@@ -28,10 +28,34 @@ uint16_t illuminance_to_u16(float illuminance)
 {
     /* Too low to be measured? */
     if (illuminance < 1.0)
-        return 0x0000;
+        return ILLUMINANCE_VALUE_TOO_LOW;
     /* Too high to be measured? */
     if (illuminance > 3.576e6)
-        return 0xFFFF;
+        return ILLUMINANCE_VALUE_INVALID;
     /* Convert to unsigned int */
-    return (uint16_t)(10000.0 * log10 (illuminance) + 1);
+    return (uint16_t)(10000.0 * log10 (illuminance) + 1.0);
+}
+
+uint16_t water_content_to_u16(float water_content)
+{
+    /* Too low => Unknown */
+    if (water_content < 0.0)
+        return HUMIDITY_VALUE_UNKNOWN;
+    /* Too high => Unknown */
+    if (water_content > 100.0)
+        return HUMIDITY_VALUE_UNKNOWN;
+    /* Covnert it */
+    return (uint16_t)(water_content * 100.0);
+}
+
+int16_t pressure_to_s16(float pressure)
+{
+    /* Too low ? */
+    if (pressure < -3276.7)
+        return PRESSURE_VALUE_UNKNOWN;
+    /* Too high ?*/
+    if (pressure > 3276.7)
+        return PRESSURE_VALUE_UNKNOWN;
+    /* Convert to signed int */
+    return (int16_t)(pressure * 10);
 }
