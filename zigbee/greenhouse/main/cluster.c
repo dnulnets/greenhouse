@@ -94,3 +94,4 @@ esp_zb_attribute_list_t *create_pressure_cluster (float min, float max)
     esp_zb_attribute_list_t *icl = esp_zb_pressure_meas_cluster_create(&ic);
     return icl;
 }
+

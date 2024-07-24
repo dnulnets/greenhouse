@@ -18,6 +18,7 @@
 #include "convert.h"
 #include "ep_outside.h"
 #include "ep_greenhouse.h"
+#include "ep_soil.h"
 
 static const char *TAG = "greenhouse.c";
 
@@ -108,6 +109,16 @@ static void zb_task(void *pvParameters)
         .app_device_version = GREENHOUSE_DEVICE_VERSION
     };
     esp_zb_ep_list_add_ep(ep_list, esp_zb_greenhouse_ep, endpoint_greenhouse_config);
+
+    /* Create the soil endpoint */
+    esp_zb_cluster_list_t *esp_zb_soil_ep = create_soil_ep();
+    esp_zb_endpoint_config_t endpoint_soil_config = {
+        .endpoint = EP_SOIL_ID,
+        .app_profile_id = ESP_ZB_AF_HA_PROFILE_ID,
+        .app_device_id = ESP_ZB_HA_SIMPLE_SENSOR_DEVICE_ID,
+        .app_device_version = GREENHOUSE_DEVICE_VERSION
+    };
+    esp_zb_ep_list_add_ep(ep_list, esp_zb_soil_ep, endpoint_soil_config);
 
     /* Register the device */
     esp_zb_device_register(ep_list);

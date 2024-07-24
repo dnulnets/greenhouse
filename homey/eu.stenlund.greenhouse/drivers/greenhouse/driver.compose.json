@@ -13,6 +13,10 @@
       "20": {
         "clusters": [0, 3, 1026, 1024, 1029],
         "bindings": [1026, 1024, 1029 ]
+      },
+      "30": {
+        "clusters": [0, 3, 1026,  1029],
+        "bindings": [1026, 1029 ]
       }
     },
     "devices": {
@@ -20,6 +24,15 @@
         "name": { "en": "Greenhouse inside" },
         "class": "other",
         "capabilities": ["measure_temperature", "measure_luminance", "measure_humidity"],
+        "settings": []
+      },
+      "soil": {
+        "name": { "en": "Greenhouse soil" },
+        "class": "other",
+        "capabilities": ["measure_temperature", "measure_humidity"],
+        "capabilitiesOptions": {
+          "measure_humidity": { "title": { "en": "Soil moisture" } }
+        },
         "settings": []
       }
     }

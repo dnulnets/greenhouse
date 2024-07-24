@@ -13,6 +13,7 @@ const { ZigBeeDriver } = require('homey-zigbeedriver');
 
 const OutsideDevice = require("./device_outside.js");
 const InsideDevice = require("./device_inside.js");
+const SoilDevice = require("./device_soil.js");
 
 class GreenhouseDriver extends ZigBeeDriver {
 
@@ -20,6 +21,8 @@ class GreenhouseDriver extends ZigBeeDriver {
 
         if (device.getData().subDeviceId === "inside") {
           return InsideDevice;
+        } else if (device.getData().subDeviceId === "soil") {
+          return SoilDevice;
         } else {
           return OutsideDevice;
         }
