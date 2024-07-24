@@ -5,13 +5,10 @@
 #include <ha/esp_zigbee_ha_standard.h>
 
 #include "greenhouse.h"
+#include "convert.h"
+#include "ep_outside.h"
 
-static const char *TAG = "ESP_ZB_TEMP_SENSOR";
-
-static int16_t zb_temperature_to_s16(float temp)
-{
-    return (int16_t)(temp * 100);
-}
+static const char *TAG = "GREENHOUSE";
 
 static void bdb_start_top_level_commissioning_cb(uint8_t mode_mask)
 {
@@ -64,32 +61,6 @@ void esp_zb_app_signal_handler(esp_zb_app_signal_t *signal_struct)
     }
 }
 
-static esp_zb_cluster_list_t *custom_temperature_sensor_clusters_create(esp_zb_temperature_sensor_cfg_t *temperature_sensor)
-{
-    esp_zb_cluster_list_t *cluster_list = esp_zb_zcl_cluster_list_create();
-
-    esp_zb_attribute_list_t *basic_cluster = esp_zb_basic_cluster_create(&(temperature_sensor->basic_cfg));
-    ESP_ERROR_CHECK(esp_zb_basic_cluster_add_attr(basic_cluster, ESP_ZB_ZCL_ATTR_BASIC_MANUFACTURER_NAME_ID, MANUFACTURER_NAME));
-    ESP_ERROR_CHECK(esp_zb_basic_cluster_add_attr(basic_cluster, ESP_ZB_ZCL_ATTR_BASIC_MODEL_IDENTIFIER_ID, MODEL_IDENTIFIER));
-    ESP_ERROR_CHECK(esp_zb_cluster_list_add_basic_cluster(cluster_list, basic_cluster, ESP_ZB_ZCL_CLUSTER_SERVER_ROLE));
-
-    ESP_ERROR_CHECK(esp_zb_cluster_list_add_identify_cluster(cluster_list, esp_zb_identify_cluster_create(&(temperature_sensor->identify_cfg)), ESP_ZB_ZCL_CLUSTER_SERVER_ROLE));
-    
-    ESP_ERROR_CHECK(esp_zb_cluster_list_add_temperature_meas_cluster(cluster_list, esp_zb_temperature_meas_cluster_create(&(temperature_sensor->temp_meas_cfg)), ESP_ZB_ZCL_CLUSTER_SERVER_ROLE));
-
-    esp_zb_illuminance_meas_cluster_cfg_t ic = { .min_value = 0, .max_value = 1000, .measured_value = 41762 };
-    esp_zb_attribute_list_t *icl = esp_zb_illuminance_meas_cluster_create(&ic);
-    uint16_t tolerance = 0x000a;
-    uint8_t light_sensor_type = 0x01;
-    ESP_ERROR_CHECK(esp_zb_illuminance_meas_cluster_add_attr(icl, ESP_ZB_ZCL_ATTR_ILLUMINANCE_MEASUREMENT_TOLERANCE_ID, &tolerance));
-    ESP_ERROR_CHECK(esp_zb_illuminance_meas_cluster_add_attr(icl, ESP_ZB_ZCL_ATTR_ILLUMINANCE_MEASUREMENT_LIGHT_SENSOR_TYPE_ID, &light_sensor_type));
-
-
-    ESP_ERROR_CHECK(esp_zb_cluster_list_add_illuminance_meas_cluster(cluster_list, icl, ESP_ZB_ZCL_CLUSTER_SERVER_ROLE));
-
-    return cluster_list;
-}
-
 static void zb_task(void *pvParameters)
 {
 
@@ -107,13 +78,10 @@ static void zb_task(void *pvParameters)
     /* Create the list of endpoints*/
     esp_zb_ep_list_t *ep_list = esp_zb_ep_list_create();
 
-    /* Create customized temperature sensor endpoint */
-    esp_zb_temperature_sensor_cfg_t sensor_cfg = ESP_ZB_DEFAULT_TEMPERATURE_SENSOR_CONFIG();
-    sensor_cfg.temp_meas_cfg.min_value = zb_temperature_to_s16(ESP_TEMP_SENSOR_MIN_VALUE);
-    sensor_cfg.temp_meas_cfg.max_value = zb_temperature_to_s16(ESP_TEMP_SENSOR_MAX_VALUE);
-    esp_zb_cluster_list_t *esp_zb_sensor_ep = custom_temperature_sensor_clusters_create(&sensor_cfg);
+    /* Create the outside endpoint */
+    esp_zb_cluster_list_t *esp_zb_sensor_ep = create_outside_ep();
     esp_zb_endpoint_config_t endpoint_config = {
-        .endpoint = HA_ESP_SENSOR_ENDPOINT,
+        .endpoint = EP_OUTSIDE_ID,
         .app_profile_id = ESP_ZB_AF_HA_PROFILE_ID,
         .app_device_id = ESP_ZB_HA_SIMPLE_SENSOR_DEVICE_ID,
         .app_device_version = 0

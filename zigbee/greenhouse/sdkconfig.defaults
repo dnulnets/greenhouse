@@ -2,6 +2,7 @@
 # Espressif IoT Development Framework (ESP-IDF)  Project Minimal Configuration
 #
 CONFIG_IDF_TARGET="esp32c6"
+CONFIG_ESPTOOLPY_FLASHSIZE_16MB=y
 CONFIG_PARTITION_TABLE_CUSTOM=y
 CONFIG_ZB_ENABLED=y
 CONFIG_ZB_ZED=y
