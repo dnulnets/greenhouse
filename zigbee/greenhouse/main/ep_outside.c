@@ -1,13 +1,22 @@
+/*
+ * ep_outside.c: Creates the outside endpoint.
+ *
+ * License: CC-BY-4.0
+ * Copyright:2024, Tomas Stenlund
+ * 
+ */
+
 #include <nvs_flash.h>
 #include <esp_zigbee_core.h>
 #include <esp_check.h>
 #include <nwk/esp_zigbee_nwk.h>
 #include <ha/esp_zigbee_ha_standard.h>
 
-#include "greenhouse.h"
 #include "convert.h"
 #include "cluster.h"
 #include "ep_outside.h"
+
+static const char *TAG = "ep_outside.c";
 
 esp_zb_cluster_list_t *create_outside_ep()
 {

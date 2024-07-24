@@ -1,3 +1,11 @@
+/*
+ * ep_outside.c: Creates the outside endpoint.
+ *
+ * License: CC-BY-4.0
+ * Copyright:2024, Tomas Stenlund
+ * 
+ */
+
 #define EP_OUTSIDE_ID 10
 
 #define EP_OUTSIDE_TEMP_SENSOR_MIN_VALUE   -60.0

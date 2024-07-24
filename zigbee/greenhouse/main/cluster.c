@@ -1,12 +1,22 @@
+/*
+ * cluster.c: Create clusters and sets the up with default values based on the hardware. Used
+ * to create endpoints for the Zigbee device.
+ *
+ * License: CC-BY-4.0
+ * Copyright:2024, Tomas Stenlund
+ * 
+ */
+
 #include <nvs_flash.h>
 #include <esp_zigbee_core.h>
 #include <esp_check.h>
 #include <nwk/esp_zigbee_nwk.h>
 #include <ha/esp_zigbee_ha_standard.h>
 
-#include "greenhouse.h"
 #include "convert.h"
 #include "cluster.h"
+
+static const char *TAG = "cluster.c";
 
 esp_zb_attribute_list_t *create_basic_cluster()
 {

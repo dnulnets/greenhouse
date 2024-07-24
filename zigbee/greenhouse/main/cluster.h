@@ -1,3 +1,11 @@
+/*
+ * cluster.c: Create clusters and sets the up with default values based on the hardware. Used
+ * to create endpoints for the Zigbee device.
+ *
+ * License: CC-BY-4.0
+ * Copyright:2024, Tomas Stenlund
+ * 
+ */
 
 /* The basic cluster data */
 #define CLUSTER_BASIC_MANUFACTURER_NAME "\x08""Stenlund"

@@ -1,3 +1,11 @@
+/*
+ * app.js: Main Greenhouse Homey App
+ *
+ * License: CC-BY-4.0
+ * Copyright:2024, Tomas Stenlund
+ * 
+ */
+
 'use strict';
 
 const Homey = require('homey');

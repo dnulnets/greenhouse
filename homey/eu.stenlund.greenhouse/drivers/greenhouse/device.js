@@ -1,3 +1,11 @@
+/*
+ * device.js: zigbee device for the greenhouse driver
+ *
+ * License: CC-BY-4.0
+ * Copyright:2024, Tomas Stenlund
+ * 
+ */
+
 'use strict';
 
 const { ZigBeeDevice } = require('homey-zigbeedriver');

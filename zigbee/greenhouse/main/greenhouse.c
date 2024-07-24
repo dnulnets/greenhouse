@@ -1,14 +1,24 @@
+/*
+ * greenhouse.c: Main Zigbee node setup
+ *
+ * License: CC-BY-4.0
+ * Copyright:2024, Tomas Stenlund
+ * 
+ */
+
+/* espressif header files */
 #include <nvs_flash.h>
 #include <esp_zigbee_core.h>
 #include <esp_check.h>
 #include <nwk/esp_zigbee_nwk.h>
 #include <ha/esp_zigbee_ha_standard.h>
 
+/* Local headerfiles */
 #include "greenhouse.h"
 #include "convert.h"
 #include "ep_outside.h"
 
-static const char *TAG = "GREENHOUSE";
+static const char *TAG = "greenhouse.c";
 
 static void bdb_start_top_level_commissioning_cb(uint8_t mode_mask)
 {

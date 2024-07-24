@@ -1,6 +1,16 @@
+/*
+ * convert.c: Converts to and from the human readable values to the Zigbee values.
+ *
+ * License: CC-BY-4.0
+ * Copyright:2024, Tomas Stenlund
+ * 
+ */
+
 #include <stdint.h>
 #include <math.h>
 #include "convert.h"
+
+static const char *TAG = "convert.c";
 
 int16_t temperature_to_s16(float temperature)
 {
