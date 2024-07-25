@@ -32,6 +32,8 @@ flowchart LR
     app-->zd
 ```
 ## Electronics
+[Schematics](schematics.md)
+[Sensor choices](sensor.md)
 ## Zigbee model
 [The zigbee model](zigbee.md)
 ## Software

@@ -87,7 +87,6 @@ esp_zb_attribute_list_t *create_temperature_cluster(float min, float max)
  *
  * @return A pointer to the created illuminance cluster attribute list.
  */
-esp_zb_attribute_list_t *create_illuminance_cluster(float min, float max)
 esp_zb_attribute_list_t *create_illuminance_cluster (float min, float max)
 {
     esp_zb_illuminance_meas_cluster_cfg_t ic = { 
@@ -136,7 +135,6 @@ esp_zb_attribute_list_t *create_humidity_cluster (float min, float max)
  *
  * @return A pointer to the created pressure cluster attribute list.
  */
-esp_zb_attribute_list_t *create_pressure_cluster(float min, float max)
 esp_zb_attribute_list_t *create_pressure_cluster (float min, float max)
 {
     esp_zb_pressure_meas_cluster_cfg_t ic = { 
@@ -151,3 +149,27 @@ esp_zb_attribute_list_t *create_pressure_cluster (float min, float max)
     return icl;
 }
 
+esp_zb_attribute_list_t *create_binary_input_cluster ()
+{
+    esp_zb_binary_input_cluster_cfg_t bic = {
+        .out_of_service = ESP_ZB_ZCL_BINARY_INPUT_OUT_OF_SERVICE_DEFAULT_VALUE,
+        .status_flags = ESP_ZB_ZCL_BINARY_INPUT_STATUS_FLAG_DEFAULT_VALUE,
+    };
+
+    uint8_t value = 0x00; /* No flow */
+    esp_zb_attribute_list_t *bicl = esp_zb_binary_input_cluster_create(&bic);
+    ESP_ERROR_CHECK(esp_zb_binary_input_cluster_add_attr(bicl, ESP_ZB_ZCL_ATTR_BINARY_INPUT_PRESENT_VALUE_ID, &value));
+
+    return bicl;
+}
+
+esp_zb_attribute_list_t *create_on_off_cluster ()
+{
+    esp_zb_on_off_cluster_cfg_t ooc = {
+        .on_off = ESP_ZB_ZCL_ON_OFF_ON_OFF_DEFAULT_VALUE
+    };
+
+    esp_zb_attribute_list_t *oocl = esp_zb_on_off_cluster_create(&ooc);
+
+    return oocl;
+}

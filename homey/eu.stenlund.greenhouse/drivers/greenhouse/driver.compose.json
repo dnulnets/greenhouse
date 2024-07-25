@@ -17,6 +17,10 @@
       "30": {
         "clusters": [0, 3, 1026,  1029],
         "bindings": [1026, 1029 ]
+      },
+      "40": {
+        "clusters": [0, 3, 15,  6],
+        "bindings": [15, 6 ]
       }
     },
     "devices": {
@@ -32,6 +36,15 @@
         "capabilities": ["measure_temperature", "measure_humidity"],
         "capabilitiesOptions": {
           "measure_humidity": { "title": { "en": "Soil moisture" } }
+        },
+        "settings": []
+      },
+      "water": {
+        "name": { "en": "Greenhouse watering" },
+        "class": "other",
+        "capabilities": ["onoff", "alarm_water"],
+        "capabilitiesOptions": {
+          "measure_humidity": { "title": { "en": "Water flow" } }
         },
         "settings": []
       }

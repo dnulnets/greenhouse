@@ -20,3 +20,5 @@ extern esp_zb_attribute_list_t *create_temperature_cluster(float min, float max)
 extern esp_zb_attribute_list_t *create_illuminance_cluster (float min, float max);
 extern esp_zb_attribute_list_t *create_humidity_cluster (float min, float max);
 extern esp_zb_attribute_list_t *create_pressure_cluster (float min, float max);
+extern esp_zb_attribute_list_t *create_binary_input_cluster ();
+extern esp_zb_attribute_list_t *create_on_off_cluster ();
