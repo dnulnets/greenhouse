@@ -18,6 +18,13 @@
 
 static const char *TAG = "cluster.c";
 
+/**
+ * @brief Creates a basic cluster.
+ *
+ * This function creates a basic cluster and returns a pointer to the attribute list.
+ *
+ * @return Pointer to the attribute list of the basic cluster.
+ */
 esp_zb_attribute_list_t *create_basic_cluster()
 {
     /* Create the basic cluster */
@@ -31,6 +38,13 @@ esp_zb_attribute_list_t *create_basic_cluster()
     return basic_cluster;
 }
 
+/**
+ * @brief Creates an identify cluster.
+ *
+ * This function creates and returns an identify cluster attribute list.
+ *
+ * @return A pointer to the created identify cluster attribute list.
+ */
 esp_zb_attribute_list_t *create_identify_cluster()
 {
     /* Create the basic cluster */
@@ -42,6 +56,16 @@ esp_zb_attribute_list_t *create_identify_cluster()
     return identify_cluster;
 }
 
+/**
+ * @brief Creates a temperature cluster with the specified minimum and maximum values.
+ *
+ * This function creates a temperature cluster with the given minimum and maximum values.
+ *
+ * @param min The minimum temperature value.
+ * @param max The maximum temperature value.
+ *
+ * @return A pointer to the created temperature cluster attribute list.
+ */
 esp_zb_attribute_list_t *create_temperature_cluster(float min, float max)
 {
     /* Create the temperature measurement cluster */
@@ -53,6 +77,17 @@ esp_zb_attribute_list_t *create_temperature_cluster(float min, float max)
     return temp_meas_cluster;
 }
 
+/**
+ * @brief Creates an illuminance cluster with the specified minimum and maximum values.
+ *
+ * This function creates an illuminance cluster with the given minimum and maximum values.
+ *
+ * @param min The minimum illuminance value.
+ * @param max The maximum illuminance value.
+ *
+ * @return A pointer to the created illuminance cluster attribute list.
+ */
+esp_zb_attribute_list_t *create_illuminance_cluster(float min, float max)
 esp_zb_attribute_list_t *create_illuminance_cluster (float min, float max)
 {
     esp_zb_illuminance_meas_cluster_cfg_t ic = { 
@@ -68,6 +103,16 @@ esp_zb_attribute_list_t *create_illuminance_cluster (float min, float max)
     return icl;
 }
 
+/**
+ * @brief Creates a humidity cluster with the specified minimum and maximum values.
+ *
+ * This function creates a humidity cluster with the given minimum and maximum values.
+ *
+ * @param min The minimum humidity value.
+ * @param max The maximum humidity value.
+ *
+ * @return A pointer to the created humidity cluster attribute list.
+ */
 esp_zb_attribute_list_t *create_humidity_cluster (float min, float max)
 {
     esp_zb_humidity_meas_cluster_cfg_t ic = { 
@@ -81,6 +126,17 @@ esp_zb_attribute_list_t *create_humidity_cluster (float min, float max)
     return icl;
 }
 
+/**
+ * @brief Creates a pressure cluster with the specified minimum and maximum values.
+ *
+ * This function creates a pressure cluster with the given minimum and maximum values.
+ *
+ * @param min The minimum pressure value.
+ * @param max The maximum pressure value.
+ *
+ * @return A pointer to the created pressure cluster attribute list.
+ */
+esp_zb_attribute_list_t *create_pressure_cluster(float min, float max)
 esp_zb_attribute_list_t *create_pressure_cluster (float min, float max)
 {
     esp_zb_pressure_meas_cluster_cfg_t ic = { 

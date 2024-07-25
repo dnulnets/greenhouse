@@ -26,7 +26,7 @@ Cluster list:
 This endpoint could perhaps be a separate zigbee physical device on its own to measure the soil in different locations in the greenhouse.
 Cluster list:
 * temperature measurement (0x0402), soil temperature
-* soil moisture measurement (0x0408), soil moisture
+* soil moisture measurement (0x0408), soil moisture. Unfortunately espressif has not yet implemented this cluster so I had to use the relative humidity cluster (0x0405) instead.
 ### Watering (Endpoint 40)
 Cluster list:
 * flow measurement (0x0404), the water flow for watering the plants
